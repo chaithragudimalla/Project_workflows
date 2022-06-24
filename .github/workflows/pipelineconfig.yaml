@@ -1,0 +1,9 @@
+name: 'input file'
+pipelineType: "azurefunctions"
+language: "java"
+javaVersion: 11
+slotting: false
+buildTool: "maven"
+appName: "restrictedpart" 
+TargetFileType: "zip"
+ArchiveFilePath: "target"
