@@ -1,9 +1,28 @@
-name: 'input file'
-pipelineType: "azurefunctions"
-language: "java"
-javaVersion: 11
-slotting: false
-buildTool: "maven"
-appName: "restrictedpart" 
-TargetFileType: "zip"
-ArchiveFilePath: "target"
+name: input file
+on:
+  workflow_call:
+     inputs:
+         pipelineType:
+             type: string
+             required: true
+         language:
+             type: string
+             required: true
+         javaVersion:
+             type: string
+             required: true
+         slotting:
+             type: string
+             required: true
+         buildTool:
+             type: string
+             required: true
+         appName:
+             type: string
+             required: true
+         TargetFileType:
+             type: string
+             required: true
+         ArchiveFilePath:
+             type: string
+             required: true
