@@ -26,3 +26,10 @@ on:
          ArchiveFilePath:
              type: string
              required: true
+jobs:
+     caller_job:
+           runs-on: ubuntu-latest
+           steps:
+              - name: just checking
+                run: pwsh
+         
