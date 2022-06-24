@@ -1,0 +1,21 @@
+name: maven
+on:
+  workflow_call:
+       inputs:
+          build_tool:
+              type: string
+              required: true
+          versions:
+              type: number
+              required: true
+jobs:
+    caller_job:
+          runs_on: ubuntu-latest
+          steps:
+             - name: checking
+             - uses: actions/checkout@v3
+             - name: running
+               run: |
+                   pwsh $a=5
+                   $a
+                   
