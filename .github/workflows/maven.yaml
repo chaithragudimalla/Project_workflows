@@ -17,4 +17,3 @@ jobs:
                run: |
                    pwsh $a=5
                    $a
-                   
