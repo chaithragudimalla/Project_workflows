@@ -7,13 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
   call_workflow:
-        uses: chaithragudimalla/.github/workflows/pipelineconfig.yaml@main
-        with:
-          pipelineType: 'awsEBS'
-          language: 'java'
-          javaVersion: '11'
-          slotting: 'abc'
-          buildTool: 'maven'
-          appName: 'abc-def'
-          TargetFileType: 'war'
-          ArchiveFilePath: './target'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chaithragudimalla/.github/workflows/pipelineconfig.yaml@main
+      - if: outputs.language.value = java and outputs.build_tool.value = maven
+        uses: chaithragudimalla/.github/workflows/maven.yaml@main
+      - fi: 
+          - run: pwsh -command 'Invoke-WebRequest -Uri "https://gist.github.com/pdashford/2e4bcd4fc2343e2fd03efe4da17f577d" -OutFile "gh-download.py"'
