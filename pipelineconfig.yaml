@@ -1,0 +1,8 @@
+pipelineType: "awsEBS"
+language: "java"
+javaVersion: "11"
+slotting: "abc"
+buildTool: "maven"
+appName: "abc-def"
+TargetFileType: "war"
+ArchiveFilePath: "./target"
