@@ -1,35 +1,25 @@
-name: input file
+name: Reusable workflow
+
 on:
   workflow_call:
-     inputs:
-         pipelineType:
-             type: string
-             required: true
-         language:
-             type: string
-             required: true
-         javaVersion:
-             type: string
-             required: true
-         slotting:
-             type: string
-             required: true
-         buildTool:
-             type: string
-             required: true
-         appName:
-             type: string
-             required: true
-         TargetFileType:
-             type: string
-             required: true
-         ArchiveFilePath:
-             type: string
-             required: true
+    # Map the workflow outputs to job outputs
+    outputs:
+      language:
+        value: ${{ jobs.example_job.outputs.output1 }}
+      build_tool:
+        description: "The second output string"
+        value: ${{ jobs.example_job.outputs.output2 }}
+
 jobs:
-     caller_job:
-           runs-on: ubuntu-latest
-           steps:
-              - name: just checking
-                run: pwsh
-         
+  example_job:
+    name: Generate output
+    runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.language }}
+      output2: ${{ steps.step2.outputs.build_tool }}
+    steps:
+      - id: step1
+        run: echo "::set-output name=language::java"
+      - id: step2
+        run: echo "::set-output name=build_tool::maven"
