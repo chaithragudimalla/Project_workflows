@@ -10,7 +10,7 @@ on:
               required: true
 jobs:
     caller_job:
-          runs_on: ubuntu-latest
+          runs-on: ubuntu-latest
           steps:
              - name: checking
              - uses: actions/checkout@v3
