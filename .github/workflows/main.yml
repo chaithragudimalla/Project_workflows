@@ -2,20 +2,18 @@ name: Calling all other workflows from this
 on:
   workflow_dispatch:
 jobs:
-  reusable_workflow_jobs:
-    runs-on: ubuntu-latest
-    environment: building
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+  call_workflow:
+        uses: chaithragudimalla/.github/workflows/pipelineconfig.yaml@main
+        with:
+          pipelineType: 'awsEBS'
+          language: 'java'
+          javaVersion: '11'
+          slotting: 'abc'
+          buildTool: 'maven'
+          appName: 'abc-def'
+          TargetFileType: 'war'
+          ArchiveFilePath: './target'
