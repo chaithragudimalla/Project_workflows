@@ -12,8 +12,7 @@ jobs:
         shell: pwsh
         run: | 
            $a = ${{ needs.job1.outputs.language }}
-           $b = ${{ needs.job1.outputs.build_tool }}
-           if ( $a -eq java -and $b -eq maven) {
+           if ($a -eq java) {
               write-host " maven pipelinetype "
            } else {
               write-host " other "
