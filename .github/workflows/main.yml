@@ -19,4 +19,6 @@ jobs:
            }
   job3:
     uses: chaithragudimalla/Project_workflows/.github/workflows/maven.yaml@main
-        
+    with:
+       build_tool: maven
+       versions: 14
