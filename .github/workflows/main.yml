@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   job1:
-    uses: chaithragudimalla/.github/workflows/pipelineconfig.yaml@main
+    uses: chaithragudimalla/Project_workflows/.github/workflows/pipelineconfig.yaml@main
 
   job2:
     runs-on: ubuntu-latest
