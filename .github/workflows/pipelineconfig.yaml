@@ -20,6 +20,6 @@ jobs:
       output2: ${{ steps.step2.outputs.build_tool }}
     steps:
       - id: step1
-        run: echo "::set-output name=language::java"
+        run: echo "::set-output name=language::'java'"
       - id: step2
-        run: echo "::set-output name=build_tool::maven"
+        run: echo "::set-output name=build_tool::'maven'"
