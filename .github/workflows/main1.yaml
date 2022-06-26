@@ -1,0 +1,16 @@
+name: Calling all other workflows from this
+on:
+  workflow_dispatch:
+jobs:
+  job1:
+    uses: chaithragudimalla/Project_workflows/.github/workflows/pipelineconfig.yaml@main
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: getting values from pipelineconfig
+        if: ${{ needs.job1.outputs.build_tool }} == 'maven'
+        uses: chaithragudimalla/Project_workflows/.github/workflows/maven.yaml@main
+        with:
+           build_tool: maven
+           versions: 14
