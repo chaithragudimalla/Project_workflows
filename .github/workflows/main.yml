@@ -11,7 +11,9 @@ jobs:
       - name: powershell
         shell: pwsh
         run: | 
-           if ({{ needs.job1.outputs.language }} == java && {{ needs.job1.outputs.build_tool }} == maven) {
+           $a = ${{ needs.job1.outputs.language }}
+           $b = ${{ needs.job1.outputs.build_tool }}
+           if ({{ $a == java && $b == maven) {
               write-host " maven pipelinetype "
            } else {
               write-host " other "
