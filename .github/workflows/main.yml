@@ -13,7 +13,7 @@ jobs:
         run: | 
            $a = ${{ needs.job1.outputs.language }}
            $b = ${{ needs.job1.outputs.build_tool }}
-           if ({{ $a -eq java && $b -eq maven) {
+           if ( $a -eq java -and $b -eq maven) {
               write-host " maven pipelinetype "
            } else {
               write-host " other "
