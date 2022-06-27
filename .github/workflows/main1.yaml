@@ -6,11 +6,11 @@ jobs:
     uses: chaithragudimalla/Project_workflows/.github/workflows/pipelineconfig.yaml@main
   job2:
     if: ${{ needs.job1.outputs.build_tool }} == 'nodejs'
-    uses: chaithragudimalla/Project_workflows/.github/workflows/a.yaml@main
+    uses: chaithragudimalla/Project_workflows/.github/workflows/nodejs.yaml@main
     with:
-       build_tool: maven
+       build_tool: nodejs
        versions: 14
-   job3:
+  job3:
     if: ${{ needs.job1.outputs.build_tool }} == 'maven'
     uses: chaithragudimalla/Project_workflows/.github/workflows/maven.yaml@main
     with:
