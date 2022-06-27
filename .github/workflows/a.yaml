@@ -1,0 +1,20 @@
+name: a
+on:
+  workflow_call:
+       inputs:
+          build_tool:
+              type: string
+              required: true
+          versions:
+              type: number
+              required: true
+jobs:
+    caller_job:
+          runs-on: ubuntu-latest
+          steps:
+             - uses: actions/checkout@v3
+             - name: running
+               shell: pwsh
+               run: |
+                   $a = 5
+                   $a
