@@ -14,8 +14,8 @@ jobs:
           b: ${{ needs.job1.outputs.build_tool }}
         run: echo "$b"
   job3:
-    needs: job2
-    uses: chaithragudimalla/Project_workflows/.github/workflows/${{ needs.job2.steps.env.b }}.yaml@main
+    needs: job1
+    uses: chaithragudimalla/Project_workflows/.github/workflows/${{ needs.job1.outputs.build_tool }}.yaml@main
     with:
        build_tool: maven
        versions: 14
