@@ -10,9 +10,10 @@ jobs:
     steps:
       - name: getting values from pipelineconfig
         if: ${{ needs.job1.outputs.build_tool }} == 'maven'
-          maven = ${{ needs.job1.outputs.build_tool }}
+          a = ${{ needs.job1.outputs.build_tool }}
   job3:
-    uses: chaithragudimalla/Project_workflows/.github/workflows/maven.yaml@main
+    needs: job2
+    uses: chaithragudimalla/Project_workflows/.github/workflows/a.yaml@main
     with:
        build_tool: maven
        versions: 14
