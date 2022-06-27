@@ -23,5 +23,6 @@ jobs:
     needs: job3
     steps:
        - name: running workflow
+         shell: python
          run: a
 
