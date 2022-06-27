@@ -19,8 +19,8 @@ jobs:
        build_tool: maven
        versions: 14
   job4:
-    needs: job3
     runs-on: ubuntu-latest
+    needs: job3
     steps:
        - name: checking
          shell: python
