@@ -11,18 +11,17 @@ jobs:
       - name: getting values from pipelineconfig
         if: ${{ needs.job1.outputs.build_tool }} == 'maven'
         env:
-          b: ${{ needs.job1.outputs.build_tool }}
+           b: ${{ needs.job1.outputs.build_tool }}
         run: echo "$b"
   job3:
     needs: job1
-    uses: chaithragudimalla/Project_workflows/.github/workflows/${{ needs.job1.outputs.build_tool }}.yaml@main
+    uses: chaithragudimalla/Project_workflows/.github/workflows/a.yaml@main
     with:
        build_tool: maven
        versions: 14
   job4:
     runs-on: ubuntu-latest
-    needs: job3
+    needs: job2
     steps:
        - name: checking
-         shell: python
-         run: b
+         run: ${{ needs.job2.steps.env.b }}
