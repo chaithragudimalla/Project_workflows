@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: getting values from pipelineconfig
         if: ${{ needs.job1.outputs.build_tool }} == 'maven'
+        shell: python
         run: a = ${{ needs.job1.outputs.build_tool }}
   job3:
     needs: job2
