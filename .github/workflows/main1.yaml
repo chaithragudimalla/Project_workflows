@@ -24,4 +24,6 @@ jobs:
     needs: job2
     steps:
        - name: checking
-         run: ${{ needs.job2.steps.env.b }}
+         env: 
+            c: ${{ needs.job2.steps.env.b }}
+         run: echo "$c"
