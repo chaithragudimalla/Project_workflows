@@ -24,4 +24,4 @@ jobs:
     steps:
        - name: checking
          shell: python
-         run: a
+         run: b
