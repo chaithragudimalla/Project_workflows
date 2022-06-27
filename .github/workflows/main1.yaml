@@ -1,4 +1,4 @@
-name: Calling all other workflows from this
+name: Calling all other workflows 
 on:
   workflow_dispatch:
 jobs:
