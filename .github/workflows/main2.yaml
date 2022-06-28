@@ -3,10 +3,6 @@ on:
   workflow_dispatch:
 jobs:
    job1:
-     strategy:
-         matrix:
-             tools: [ 'maven', 'ng', 'npm' ]
-     if: !($ {{ strategy.matrix.tools }}) == $ {{ needs.job1.outputs.buildTool }} --> skip
      runs-on: ubuntu-latest
      steps:
-        uses: chaithragudimalla/Project_workflows/.github/workflows/maven.yaml@main
+       - uses: chaithragudimalla/Project_workflows/.github/workflows/maven.yaml@main
